@@ -46,9 +46,9 @@ class DB {
 		if (!$cid) $cid = static::$cid;
 		if (!$cid) {
 			if (count(static::$config)==1) {
-				$cid = reset(static::$config);
+				$cid = key(static::$config);
 			}
-			else {
+			elseif (count(static::$config)>1) {
 				foreach(static::$config as $i => $rw) {
 					if ($rw["default"]) {
 						$cid = $i;
